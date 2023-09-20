@@ -15,25 +15,25 @@ const TaskList = ({ Link, tasksObj, deleteTask }) => {
   /*Falta generar un id porque el user puede poner dos tareas con el mismo nombre y daría error y para poder Eliminar tareas a través de su id. Además la consola se queja de que el key no es único*/
  
   const taskList = tasksObj.map((task) => (
-    <li key={task.taskName} className="taskList__item">
-      <div className='taskList__item__nameTask'>
-        <button onClick={handleCompleteTask} id={task.taskName}>
+    <li key={task.taskName} className="item">
+      <div className='item__nameTask'>
+        <button className='item__nameTask__check' onClick={handleCompleteTask} id={task.taskName}>
           ✅
         </button>
         <p>{task.taskName}</p>
       </div>
-      <button onClick={handleDeleteTask} id={task.id}>
+      <button className='item__button' onClick={handleDeleteTask} id={task.id}>
         Elimnar
       </button>
-      <button>Editar</button>
+      <button className='item__button'>Editar</button>
     </li>
   ));
 
   /* Message: No tienes tareas pendientes. Yay! Para cuando no hay ninguna tarea  */
   return (
     <section className='taskListSection'>
-      <ul className="taskList">{taskList}</ul>
-      <Link to="/">Ir al inicio</Link>
+      <ul className="taskListSection__ul">{taskList}</ul>
+      <Link className='taskListSection__link' to="/">Ir al inicio</Link>
     </section>
   );
 };
