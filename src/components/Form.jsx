@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 
-const Form = ({ Link, data }) => {
+const Form = ({ Link, newTaskObj }) => {
 
 
     const handleInput = (ev) => {
-        console.log('handleinput');
+        newTaskObj(ev.target.id, ev.target.value);
     }
 
   return (
@@ -14,10 +14,10 @@ const Form = ({ Link, data }) => {
         <input
           className="form__input"
           type="text"
-          placeholder="Tarea"
-          name="tasktitle"
-          id="tasktitle"
-          value={data.tasktitle}
+          placeholder="Nombre de la tarea"
+          name="taskName"
+          id="taskName"
+          
           onInput={handleInput}
         />
       </form>
