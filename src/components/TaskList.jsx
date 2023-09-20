@@ -31,7 +31,7 @@ const TaskList = ({ Link, tasksObj, deleteTask }) => {
 
   /* Message: No tienes tareas pendientes. Yay! Para cuando no hay ninguna tarea  */
   return (
-    <section>
+    <section className='taskListSection'>
       <ul className="taskList">{taskList}</ul>
       <Link to="/">Ir al inicio</Link>
     </section>

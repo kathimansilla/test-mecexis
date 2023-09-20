@@ -22,9 +22,10 @@ function App() {
     );
   };
 
+  //esta función va a fallar porque no hay taskId aún
   const deleteTask = (taskId) => {
     console.log(taskId);
-    const cleanTaskObj = tasksObj.filter(task => task.taskName !== taskId);
+    const cleanTaskObj = tasksObj.filter(task => task.taskId !== taskId);
     setTasksObj(cleanTaskObj);
     console.log(cleanTaskObj);
   }
