@@ -22,6 +22,13 @@ function App() {
     );
   };
 
+  const deleteTask = (taskId) => {
+    console.log(taskId);
+    const cleanTaskObj = tasksObj.filter(task => task.taskName !== taskId);
+    setTasksObj(cleanTaskObj);
+    console.log(cleanTaskObj);
+  }
+
   return (
     <>
       <Header logoMecexis={logoMecexis} />
@@ -29,7 +36,7 @@ function App() {
         <Routes>
         <Route path='/' element={<Landing Link={Link} />} />
         <Route path='/NewTask' element={<Form Link={Link} newTaskObj={newTaskObj} />} />
-        <Route path='/TasksList' element={<TaskList Link={Link} tasksObj={tasksObj} />} />
+        <Route path='/TasksList' element={<TaskList Link={Link} tasksObj={tasksObj} deleteTask={deleteTask} />} />
         </Routes>
       </main>
       <Footer logoMecexis={logoMecexis} />

@@ -1,24 +1,38 @@
 /* eslint-disable react/prop-types */
 
-const TaskList = ({ Link, tasksObj }) => {
+const TaskList = ({ Link, tasksObj, deleteTask }) => {
+  //functions
+  const handleDeleteTask = (ev) => {
+    deleteTask(ev.target.id);
+    console.log(ev.target.id);
+    console.log('delete');
+  };
 
-//functions
+  const handleCompleteTask = (ev) => {
+    /*Cambiar de color para diferenciarla de las tareas que no han sido completadas, deshabilitar botón de editar con una variable de estado booleana*/
+  };
 
-
-/*Falta generar un id porque el user puede poner dos tareas con el mismo nombre y daría error*/
+  /*Falta generar un id porque el user puede poner dos tareas con el mismo nombre y daría error y para poder Eliminar tareas a través de su id. Además la consola se queja de que el key no es único*/
+ 
   const taskList = tasksObj.map((task) => (
-    <li key={task.id} className='taskList__item'>
-      <p>{task.taskName}</p>
-      <button onClick={handleDeleteTask} id={task.id}>Elimnar</button>
+    <li key={task.taskName} className="taskList__item">
+      <div className='taskList__item__nameTask'>
+        <button onClick={handleCompleteTask} id={task.taskName}>
+          ✅
+        </button>
+        <p>{task.taskName}</p>
+      </div>
+      <button onClick={handleDeleteTask} id={task.id}>
+        Elimnar
+      </button>
       <button>Editar</button>
     </li>
   ));
 
-  console.log(taskList);
-
+  /* Message: No tienes tareas pendientes. Yay! Para cuando no hay ninguna tarea  */
   return (
     <section>
-      <ul className='taskList'>{taskList}</ul>
+      <ul className="taskList">{taskList}</ul>
       <Link to="/">Ir al inicio</Link>
     </section>
   );
